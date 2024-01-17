@@ -351,7 +351,7 @@ def resize_image(request):
             
             request.session['original_image_path'] = original_image_path
             original_image_path = f'/media/uploaded_images/{image_file.name}'
-            processed_image_path = f'/media/processed_images/{image_file.name.replace('.png', '.jpg')}'
+            processed_image_path = f'/media/processed_images/{image_file.name.replace(".png", ".jpg")}'
             context = {
                 'processed_image_path' : processed_image_path,
                 'original_image_path' : original_image_path,
