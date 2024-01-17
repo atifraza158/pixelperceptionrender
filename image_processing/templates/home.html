@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container vh-100 d-flex"
+    style="justify-content: space-evenly; align-items: center; flex-direction: column;">
+    <!-- <h2>Upload Images to Process them</h2> -->
+    <div class="card p-5 shadow-lg" style="background-color: #f8fbfe;">
+        <h3>Choose an image file</h3>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <!-- {{ form.as_p }} -->
+            <input type="file" name="image" id="image" class="form-control" required>
+            <br>
+            <div class="d-flex" style="justify-content: right;">
+                <button type="submit" class="btn" style="background-color: #D5F0C1;">Upload</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script>
+    uploaded_image = document.querySelector("#image")
+</script>
+
+
+
+{% endblock content %}

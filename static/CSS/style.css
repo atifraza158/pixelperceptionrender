@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@1,9..40,700&family=Playpen+Sans:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@1,9..40,700&family=Poppins:wght@400;500;600&display=swap');
+
+body {
+    background-color: #f8fbfe;
+    font-family: 'Poppins', sans-serif;
+}
+
+.main-text {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.nav-elements-font {
+    font-family: 'Poppins', sans-serif;
+}
+
+.card-title-fonts {
+    font-family: 'Poppins', sans-serif;
+}
+
+.filters-button {
+    background-color: #80BCBD;
+}
+
+.subtitle-text {
+    color: #016A70;
+}
+
+.tools-card {
+    text-decoration: none;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+
+.my-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #f1f1f1;
+    padding: 10px;
+}

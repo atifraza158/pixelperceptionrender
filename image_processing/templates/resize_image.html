@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+    .custom-checkbox:checked {
+        background-color: #80BCBD;
+        border-color: #80BCBD;
+        box-shadow: #D5F0C1;
+    }
+
+    .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+            background-color: black; /* Set your desired color here */
+            border-color: black; /* Set your desired color here */
+            
+        }
+</style>
+
+<div class="container mt-5 d-flex"
+    style="justify-content: center; align-items: center; flex-direction: column; margin-bottom: 80px;">
+    <h2 class="text-center main-text">Resize Your Images</h2>
+    <p class="text-center nav-elements-font">Effortlessly resize and optimize images for any purpose with our intuitive image resizing tool.</p>
+    <hr width="30%" color="black">
+    <br>
+    <div class="card p-5 shadow-lg col-lg-6 col-md-6 col-10" style="background-color: #f8fbfe;">
+        <div class="row">
+            {% if messages %}
+            <div class="alert alert-dismissible" style="background-color: #D5F0C1;" role="alert">
+                {% for message in messages %}
+                {{message}}
+                {% endfor %}
+                <button type="button" class="btn-close" style="color: #fff !important" data-bs-dismiss="alert"
+                    aria-label="Close"></button>
+            </div>
+            <hr>
+            {% endif %}
+        </div>
+        <h3 class="card-title-fonts fs-4">Choose an image file</h3>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <!-- {{ form.as_p }} -->
+            <input type="file" name="image" id="image" class="form-control mb-2" required>
+            <!-- <br> -->
+            <div class="d-lg-flex d-md-flex mb-3">
+                <input type="text" name="width" id="width" placeholder="width" class="form-control me-3 ">
+                <input type="text" name="height" id="height" placeholder="height" class="form-control">
+            </div>
+            <div class="">
+                <input type="checkbox" name="aspect_ratio" class="form-check-input custom-checkbox" checked id="aspect_ratio">
+                <label class="form-check-label ms-2" for="aspect_ratio">Maintain Aspect Ratio</label>
+            </div>
+            <div class="d-flex" style="justify-content: right;">
+                <button type="submit" class="btn" style="background-color: #D5F0C1;">Upload Image <i
+                        class="fa-solid fa-upload"></i></button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    function updateImageDimensions() {
+        var input = document.getElementById('image');
+        var widthInput = document.getElementById('width');
+        var heightInput = document.getElementById('height');
+
+        input.addEventListener('change', function () {
+            var file = input.files[0];
+            if (file) {
+                var img = new Image();
+
+                img.onload = function () {
+                    widthInput.value = this.width;
+                    heightInput.value = this.height;
+                };
+
+                img.src = URL.createObjectURL(file);
+            }
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', updateImageDimensions);
+</script>
+
+
+
+{% endblock content %}

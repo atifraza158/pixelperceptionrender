@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mt-5 d-flex"
+    style="justify-content: center; align-items: center; flex-direction: column; margin-bottom: 80px;">
+    <h2 class="text-center main-text">Convert Images From WEBP to JPEG</h2>
+    <p class="text-center nav-elements-font">Effeciently Convert Images From WEBP To JPEG</p>
+    <hr width="30%" color="black">
+    <br>
+    <div class="card p-5 shadow-lg col-lg-4 col-md-6 col-10" style="background-color: #f8fbfe;">
+        <div class="row">
+            {% if messages %}
+            <div class="alert alert-dismissible" style="background-color: #D5F0C1;" role="alert">
+                {% for message in messages %}
+                {{message}}
+                {% endfor %}
+                <button type="button" class="btn-close" style="color: #fff !important" data-bs-dismiss="alert"
+                    aria-label="Close"></button>
+            </div>
+            <hr>
+            {% endif %}
+        </div>
+        <h3 class="card-title-fonts fs-4">Choose an image file</h3>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <!-- {{ form.as_p }} -->
+            <input type="file" name="image" id="image" class="form-control" required>
+            <br>
+            <div class="d-flex" style="justify-content: right;">
+                <button type="submit" class="btn" style="background-color: #D5F0C1;">Upload Image <i
+                        class="fa-solid fa-upload"></i></button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+{% endblock content %}

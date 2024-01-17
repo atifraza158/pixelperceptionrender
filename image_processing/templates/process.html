@@ -1,0 +1,109 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container">
+  <!-- Uploaded Image -->
+  <div class="col-lg-6 col-md-8 col-10">
+    <h2>Uploaded Image</h2>
+    <img
+      src="{{ original_image_path }}"
+      alt="Original Image"
+      class="img-fluid"
+      name="uploaded_image"
+      id="uploaded_image"
+    />
+  </div>
+
+  <!-- Buttons For Image Processing -->
+  <h4>Filters</h4>
+  <form action="" enctype="multipart/form-data" method="post" id="imgForm">
+    {% csrf_token %}
+    <div class="processing-buttons d-flex">
+      <button
+        class="btn filters-button text-white m-2"
+        style="background-color: #445069"
+        type="button"
+        name="gray_btn"
+        id="gray_btn"
+      >
+        Gray
+      </button>
+      <button
+        class="btn filters-button text-white m-2"
+        style="background-color: #80bcbd"
+        type="button"
+        name="blur_btn"
+        id="blur_btn"
+      >
+        Blur
+      </button>
+      <button
+        class="btn filters-button text-white m-2"
+        style="background-color: #80bcbd"
+        type="button"
+        name="rgb_btn"
+        id="rgb_btn"
+      >
+        Convert to RGB
+      </button>
+      <button
+        class="btn filters-button text-white m-2"
+        style="background-color: #80bcbd"
+        type="button"
+        name="reset_btn"
+        id="reset_btn"
+      >
+        Reset
+      </button>
+      <button
+        class="btn filters-button text-white m-2"
+        style="background-color: #80bcbd"
+        type="button"
+        name="save_btn"
+        id="save_btn"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</div>
+
+<script>
+  let image_path = "{{original_image_path }}";
+  let csrf_token = document.getElementsByName("csrfmiddlewaretoken")[0].value;
+
+  function sendImageToServer(action) {
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", '{% url "process_image" %}', true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.setRequestHeader("X-CSRFToken", csrf_token); // Include CSRF token in the headers
+    xhr.send(JSON.stringify({ 'action': action, 'image_path': image_path }));
+
+    // document.getElementById('gray_btn').addEventListener('click', function () {
+    //     sendImageToServer('gray_btn');
+    // });
+  }
+
+  document.getElementById("gray_btn").addEventListener("click", function () {
+    sendImageToServer("grayscale");
+  });
+
+  document
+    .getElementById("blur_btn")
+    .addEventListener("click", function () {
+        sendImageToServer("blur")
+    });
+
+  document.getElementById("rgb_btn").addEventListener("click", function () {
+    sendImageToServer("rgb");
+  });
+
+  document.getElementById("reset_btn").addEventListener("click", function () {
+    sendImageToServer("reset");
+  });
+
+  document.getElementById("save_btn").addEventListener("click", function () {
+    sendImageToServer("save");
+  });
+</script>
+
+{% endblock content %}

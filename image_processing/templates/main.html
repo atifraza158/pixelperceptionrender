@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container-fluid mt-5" style="margin-bottom: 80px;">
+    <div class="container d-flex" style="justify-content: space-between; align-items: center; flex-direction: column;">
+        <h1 class="main-text"><b>Free Tools To Make Everything Simple.</b></h1>
+        <!-- <p>We offer Background-Remove, Compress and other Image tools to make your life easier</p> -->
+        <p style="font-family: 'Poppins', sans-serif;">Elevate Your Images: Precision-Driven Image Processing at Your Fingertips.</p>
+        <!-- <br> -->
+        <hr width="40%" color="black">
+        <br>
+        <div class="row">
+
+
+            <!-- Card for Convert Images from JPG to WebP  -->
+            <a href="{% url 'convert-jpg-to-webp' %}" class="tools-card col-lg-3 col-md-4 col-sm-6"
+                style="text-decoration: none;">
+                <div class="card p-3 m-2 shadow-lg" style="background-color: #f8fbfe; border: none;">
+                    <h4 class="card-title-fonts">JPEG to WebP</h4>
+                    <hr>
+                    <div class="subtitle d-flex" style="justify-content: space-between;">
+                        <p class="subtitle-text">Free Tool</p>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Card for Converting Image from WEBPG to JPEG -->
+            <a href="{% url 'convert-webp-to-jpg' %}" class="tools-card col-lg-3 col-md-4 col-sm-6"
+                style="text-decoration: none;">
+                <div class="card p-3 m-2 shadow-lg" style="background-color: #f8fbfe; border: none;">
+                    <h4 class="card-title-fonts">WebP To JPEG</h4>
+                    <hr>
+                    <div class="subtitle d-flex" style="justify-content: space-between;">
+                        <p class="subtitle-text">Free Tool</p>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- Card for PNG to JPG Conversion -->
+                <a href="{% url 'convert-png-to-jpg' %}" class="tools-card col-lg-3 col-md-4 col-sm-6"
+                    style="text-decoration: none;">
+                    <div class="card p-3 m-2 shadow-lg" style="background-color: #f8fbfe; border: none;">
+                        <h4 class="card-title-fonts">PNG to JPG</h4>
+                        <hr>
+                        <div class="subtitle d-flex" style="justify-content: space-between;">
+                            <p class="subtitle-text">Free Tool</p>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+
+
+
+                <!-- Card for Resize Image -->
+                <a href="{% url 'resize-image' %}" class="tools-card col-lg-3 col-md-4 col-sm-6"
+                    style="text-decoration: none;">
+                    <div class="card p-3 m-2 shadow-lg" style="background-color: #f8fbfe; border: none;">
+                        <h4 class="card-title-fonts">Resize Image</h4>
+                        <hr>
+                        <div class="subtitle d-flex" style="justify-content: space-between;">
+                            <p class="subtitle-text">Free Tool</p>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+
+
+
+                <!-- Card for Compress Images Card -->
+                <a href="{% url 'compress-image' %}" class="tools-card col-lg-3 col-md-4 col-sm-6"
+                    style="text-decoration: none;">
+                    <div class="card p-3 m-2 shadow-lg" style="background-color: #f8fbfe; border: none;">
+                        <h4 class="card-title-fonts">Compress Image</h4>
+                        <hr>
+                        <div class="subtitle d-flex" style="justify-content: space-between;">
+                            <p class="subtitle-text">Free Tool</p>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+
+
+                <!-- Card for Blur Images -->
+                <a href="{% url 'blur-image' %}" class="tools-card col-lg-3 col-md-4 col-sm-6"
+                    style="text-decoration: none;">
+                    <div class="card p-3 m-2 shadow-lg" style="background-color: #f8fbfe; border: none;">
+                        <h4 class="card-title-fonts">Blur Image</h4>
+                        <hr>
+                        <div class="subtitle d-flex" style="justify-content: space-between;">
+                            <p class="subtitle-text">Free Tool</p>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+
+
+
+
+                <!-- Card for GrayScale Conversion -->
+                <a href="{% url 'edge-detection' %}" class="tools-card col-lg-3 col-md-4 col-sm-6"
+                    style="text-decoration: none;">
+                    <div class="card p-3 m-2 shadow-lg" style="background-color: #f8fbfe; border: none;">
+                        <h4 class="card-title-fonts">Edge Detection</h4>
+                        <hr>
+                        <div class="subtitle d-flex" style="justify-content: space-between;">
+                            <p class="subtitle-text">Free Tool</p>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+
+
+
+                <!-- Card for GrayScale Conversion -->
+                <a href="{% url 'gray-conversion' %}" class="tools-card col-lg-3 col-md-4 col-sm-6"
+                    style="text-decoration: none;">
+                    <div class="card p-3 m-2 shadow-lg" style="background-color: #f8fbfe; border: none;">
+                        <h4 class="card-title-fonts">Convert to GrayScale</h4>
+                        <hr>
+                        <div class="subtitle d-flex" style="justify-content: space-between;">
+                            <p class="subtitle-text">Free Tool</p>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    uploaded_image = document.querySelector("#image")
+</script>
+
+
+
+{% endblock content %}

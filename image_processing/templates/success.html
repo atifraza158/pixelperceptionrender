@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mt-5" style="margin-bottom: 150px; ">
+    <div class="d-flex" style="flex-direction: column; justify-content: center; align-items: center;">
+        <div class="headers">
+            <h2 class="text-center main-text">Processed Image</h2>
+            <p class="text-center nav-elements-font">Here are the Processed and Original Images Respectively</p>
+        </div>
+        <br>
+        <div class="d-lg-flex d-md-flex vw-sm-100 justify-content-sm-center align-items-sm-center" style="justify-content: center; align-items: center;">
+            <div class="col-lg-6 col-md-6 col-10 mb-3">
+                <h5 class="ms-2" style="font-family: 'Poppins', sans-serif;">Processed Image</h5>
+                <img src="{{ processed_image_path }}" alt="Processed Image" class="img-fluid d-sm-flex justify-content-sm-center"
+                    style="border-radius: 21px;">
+            </div>
+            <!-- <label class="form-label">Processed Image</label> -->
+            <div class="col-lg-5 col-md-5 col-8">
+                <h5 class="ms-4" style="font-family: 'Poppins', sans-serif;">Original Image</h5>
+                <img src="{{ original_image_path }}" alt="Original Image" class="img-fluid "
+                    style="margin-left: 20px; border-radius: 21px;">
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="download-btn d-flex " style="justify-content: right; margin-right: 100px;">
+        <a href="{{processed_image_path}}" download="{{processed_image_path}}" class="btn filters-button"
+            style="background-color: #D5F0C1;">Download Image <i class="fa-solid fa-download"></i></a>
+    </div>
+</div>
+
+{% endblock content %}

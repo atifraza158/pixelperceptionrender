@@ -1,0 +1,42 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container mt-5 d-flex" style="
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 80px;
+  ">
+  <h2 class="text-center main-text">Convert Your Images into Blur Effect</h2>
+  <p class="text-center nav-elements-font">Softening the Edges: A Glimpse Through the Blurred Lens</p>
+  <hr width="30%" color="black" />
+  <br />
+  <div class="card p-5 shadow-lg col-lg-6 col-md-8 col-10" style="background-color: #f8fbfe">
+    {% if message %}
+    <div class="alert alert-dismissible fade show" style="background-color: #d5f0c1;" role="alert">
+      {{message}}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %}
+    <h3 class="card-title-fonts fs-4">Choose an image file</h3>
+    <form action="" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <input type="file" name="image" id="image" class="form-control" required />
+      <br />
+      <select name="blur_intensity" id="" class="form-control" required>
+        <option value="">Select Blur intensity</option>
+        <option value="13">Small Blur</option>
+        <option value="27">Medium Blur</option>
+        <option value="41">High Blur</option>
+        <option value="101">Super Blur - For High Quality Images</option>
+      </select>
+      <br />
+      <div class="d-flex" style="justify-content: right">
+        <button type="submit" class="btn" style="background-color: #d5f0c1">
+          Upload Image <i class="fa-solid fa-upload"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock content %}
